@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-express';
 import { remove } from 'lodash';
 
-const people = [
+let people = [
 	{
 		id: '1',
 		firstName: 'Bill',
@@ -19,7 +19,7 @@ const people = [
 	},
 ];
 
-const cars = [
+let cars = [
 	{
 		id: '1',
 		year: '2019',
@@ -103,17 +103,25 @@ export const typeDefs = gql`
 
 	type Car {
 		id: String!
-		year: Int
-		make: String
-		model: String
-		price: Float
-		personId: String
+		year: Int!
+		make: String!
+		model: String!
+		price: Float!
+		personId: String!
+	}
+
+	type PersonWithCars {
+		id: String!
+		firstName: String!
+		lastName: String!
+		cars: [Car]
 	}
 
 	type Query {
 		people: [Person]
 		person(id: String): Person
 		cars: [Car]
+		personWithCars(id: String!): PersonWithCars
 	}
 
 	type Mutation {
@@ -131,6 +139,16 @@ export const resolvers = {
 		people: () => people,
 		person: (_, args) => people.find(p => p.id === args.id),
 		cars: () => cars,
+		personWithCars: (_, args) => {
+			const person = people.find(p => p.id === args.id);
+
+			const personCars = cars.filter(car => car.personId === args.id);
+
+			return {
+				...person,
+				cars: personCars,
+			};
+		},
 	},
 
 	Mutation: {
@@ -162,6 +180,8 @@ export const resolvers = {
 			if (!person) throw new Error(`Person with id ${args.id} doesn't exist!`);
 
 			remove(people, p => p.id === person.id);
+
+			cars = cars.filter(car => car.personId !== args.id);
 
 			return person;
 		},
