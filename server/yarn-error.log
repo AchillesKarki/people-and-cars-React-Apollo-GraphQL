@@ -1,0 +1,42 @@
+Arguments: 
+  /Users/brokerlift/.nvm/versions/node/v16.13.2/bin/node /Users/brokerlift/.node/corepack/yarn/1.22.15/bin/yarn.js add apollo-server-express apollo-server-core express grapql
+
+PATH: 
+  /usr/local/opt/mongodb-community@4.4/bin:/Users/brokerlift/.nvm/versions/node/v16.13.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/opt/mongodb-community@4.0/bin:/usr/local/mysql/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.13.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/grapql: Not found
+      at Request.params.callback [as _callback] (/Users/brokerlift/.node/corepack/yarn/1.22.15/lib/cli.js:66140:18)
+      at Request.self.callback (/Users/brokerlift/.node/corepack/yarn/1.22.15/lib/cli.js:140885:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (/Users/brokerlift/.node/corepack/yarn/1.22.15/lib/cli.js:141857:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (/Users/brokerlift/.node/corepack/yarn/1.22.15/lib/cli.js:141779:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "react-apollo-graphql-server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "author": "Ashim Karki",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
