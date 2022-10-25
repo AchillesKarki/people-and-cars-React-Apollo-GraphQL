@@ -81,7 +81,7 @@ const UpdateCar = ({ id, year, make, model, price, personId: previousPersonId, p
 			name='add-car-form'
 			onFinish={onFinish}
 			size='large'
-			style={{ marginTop: '20px', marginBottom: '20px' }}
+			style={{ marginTop: '20px', marginBottom: '20px', padding: '15px', border: '3px solid #d9d9d9' }}
 			initialValues={{
 				id,
 				year,
@@ -118,21 +118,23 @@ const UpdateCar = ({ id, year, make, model, price, personId: previousPersonId, p
 				</Select>
 			</Form.Item>
 
-			<Form.Item shouldUpdate={true}>
-				{() => (
-					<Button
-						type='primary'
-						htmlType='submit'
-						disabled={form.getFieldsError().filter(({ errors }) => errors.length).length}
-					>
-						Update car
-					</Button>
-				)}
-			</Form.Item>
+			<div style={{ display: 'flex', gap: '20px' }}>
+				<Form.Item shouldUpdate={true}>
+					{() => (
+						<Button
+							type='primary'
+							htmlType='submit'
+							disabled={form.getFieldsError().filter(({ errors }) => errors.length).length}
+						>
+							Update car
+						</Button>
+					)}
+				</Form.Item>
 
-			<Button type='danger' onClick={onButtonClick}>
-				Cancel
-			</Button>
+				<Button type='danger' onClick={onButtonClick}>
+					Cancel
+				</Button>
+			</div>
 		</Form>
 	);
 };
