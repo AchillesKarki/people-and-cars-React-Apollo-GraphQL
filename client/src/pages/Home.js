@@ -13,7 +13,7 @@ const Home = () => {
 	return (
 		<>
 			<AddPerson />
-			<AddCar peopleWithCars={data.peopleWithCars} />
+			{data.peopleWithCars.length > 0 && <AddCar peopleWithCars={data.peopleWithCars} />}
 			<People peopleWithCars={data.peopleWithCars} />
 		</>
 	);
