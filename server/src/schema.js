@@ -121,6 +121,7 @@ export const typeDefs = gql`
 		people: [Person]
 		person(id: String): Person
 		cars: [Car]
+		peopleWithCars: [PersonWithCars]
 		personWithCars(id: String!): PersonWithCars
 	}
 
@@ -139,6 +140,16 @@ export const resolvers = {
 		people: () => people,
 		person: (_, args) => people.find(p => p.id === args.id),
 		cars: () => cars,
+		peopleWithCars: () => {
+			return people.map(person => {
+				const personCars = cars.filter(car => car.personId === person.id);
+
+				return {
+					...person,
+					cars: personCars,
+				};
+			});
+		},
 		personWithCars: (_, args) => {
 			const person = people.find(p => p.id === args.id);
 
