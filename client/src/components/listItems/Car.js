@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 
-import DeletePerson from '../buttons/DeletePerson';
 import UpdateCar from '../forms/UpdateCar';
 import DeleteCar from '../buttons/DeleteCar';
 
 const getStyles = () => ({
 	card: {
-		width: '500px',
+		width: '750px',
 		marginTop: 20,
 	},
 });

@@ -10,8 +10,9 @@ import Car from './Car';
 
 const getStyles = () => ({
 	card: {
-		width: '550px',
+		width: '800px',
 		backgroundColor: '#ececec',
+		marginTop: "20px"
 	},
 });
 
